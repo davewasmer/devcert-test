@@ -1,6 +1,10 @@
 const devcert = require('devcert');
 const https = require('https');
 
+process.on('unhandledRejection', (reason) => {
+  console.log(reason.stack || reason.message || reason);
+});
+
 let skipCertutilInstall = process.argv.find((arg) => arg === '--skip-certutil-install')
 let skipHostsFile = process.argv.find((arg) => arg === '--skip-hosts-file')
 
