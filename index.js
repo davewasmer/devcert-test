@@ -12,5 +12,5 @@ devcert.certificateFor('my-app.test', { skipCertutilInstall, skipHostsFile }).th
   https.createServer(ssl, (req, res) => {
     res.write('<h1>Hello world - devcert is working</h1>');
     res.end();
-  }).listen(3000);
+  }).listen(3000, () => console.log('Ready to test'));
 });
