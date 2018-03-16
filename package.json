@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/davewasmer/devcert-test#readme",
   "dependencies": {
-    "devcert": "^1.0.0-beta.1"
+    "@types/yargs": "^11.0.0",
+    "devcert": "^1.0.0-beta.1",
+    "yargs": "^11.0.0"
   }
 }
