@@ -25,4 +25,8 @@ devcert.certificateFor(args.domain, {
     res.write('<h1>Hello world - devcert is working</h1>');
     res.end();
   }).listen(3000, () => console.log('Ready to test'));
+}).catch((e) => {
+  console.error('devcert failed:');
+  console.error(e);
+  console.error(e.stack);
 });
