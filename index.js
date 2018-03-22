@@ -3,7 +3,12 @@ const devcert = require('devcert');
 const https = require('https');
 
 process.on('unhandledRejection', (reason) => {
-  console.log(reason.stack || reason.message || reason);
+  if (reason) {
+    console.log(reason.stack || reason.message || reason);
+    process.exit(1)
+  } else {
+    console.log('Unhandled promise rejection with no reason');
+  }
 });
 
 args = yargs
