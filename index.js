@@ -24,7 +24,19 @@ args = yargs
 
 devcert.certificateFor(args.domain, {
   skipCertutilInstall: args.skipCertutilInstall,
-  skipHostsFile: args.skipHostsFile
+  skipHostsFile: args.skipHostsFile,
+  ui: {
+    firefoxWizardPromptPage(certificateURL) {
+      return `
+        <html>
+          <body>
+            <h1>Let's install a certificate</h1>
+            <a href="${ certificateURL }">Click here</a>
+          </body>
+        </html>
+      `;
+    }
+  }
 }).then((ssl) => {
   https.createServer(ssl, (req, res) => {
     res.write('<h1>Hello world - devcert is working</h1>');
